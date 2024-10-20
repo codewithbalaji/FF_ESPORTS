@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winner Announcement</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/winner.css"> <!-- Link to the CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Winner Announcement 🎉</h1>
+        <h2>eSports Event 2024</h2>
+
+        <!-- Start button to initiate countdown -->
+        <button id="start-button">Start Announcement</button>
+
+        <div id="timer" class="timer" style="display:none;">3</div> <!-- Countdown Timer -->
+
+        <p class="announcement">We are excited to announce the winner of the highly competitive eSports event organized by the Department of IT!</p>
+
+        <div class="winner" id="winner" style="display: none;">
+            <p>🏆 <span class="highlight">{{ winner_name }}</span> 🏆</p>
+        </div>
+    </div>
+
+    <footer class="coordinator-info">
+        <h2>Event Coordinators</h2>
+        <p>E-sport Staff Coordinator: Mr.Senthil</p>
+        <p>Head of Department: Mrs.Sermakani</p>
+        <p>Overall IT Department Event Coordinator: Mrs.Chithra</p>
+    </footer>
+
+
+    <!-- Include canvas-confetti library for confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        // JavaScript for countdown timer and winner announcement
+        const timerElement = document.getElementById('timer');
+        const winnerElement = document.getElementById('winner');
+        const startButton = document.getElementById('start-button');
+        const winnerName = '{{ winner_name }}'; // Pass the winner name from your backend
+        
+        const audio = new Audio('/static/music/mgm.mp3'); // Ensure this path is correct
+        audio.addEventListener('canplaythrough', () => {
+            console.log("Audio is ready to play.");
+        });
+
+        audio.addEventListener('error', (e) => {
+            console.error('Error occurred while trying to play the audio:', e);
+        });
+
+        startButton.addEventListener('click', () => {
+            startButton.style.display = 'none'; // Hide the button after click
+            startCountdown(); // Start the countdown
+        });
+
+        function startCountdown() {
+            let timeLeft = 3; // Set countdown time in seconds
+            timerElement.style.display = 'block'; // Show the timer
+            timerElement.innerText = timeLeft;
+
+            const countdown = setInterval(() => {
+                timeLeft -= 1;
+                timerElement.innerText = timeLeft;
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdown);
+                    timerElement.style.display = 'none'; // Hide the timer
+                    
+                    // Now play the background music
+                    audio.play().catch(err => {
+                        console.error('Failed to play audio:', err);
+                    });
+                    
+                    revealWinner(); // Show the winner with a typing effect
+                }
+            }, 1000);
+        }
+
+        function revealWinner() {
+            let index = 0; // Index to track the current letter
+            winnerElement.style.display = 'block'; // Show the winner element
+            winnerElement.innerHTML = ''; // Clear previous content
+
+            const typeLetter = setInterval(() => {
+                if (index < winnerName.length) {
+                    winnerElement.innerHTML += `<span class="highlight">${winnerName[index]}</span>`;
+                    index++;
+                } else {
+                    clearInterval(typeLetter); // Stop typing when done
+                    launchConfetti(); // Trigger confetti effect
+                }
+            }, 500); // Adjust the interval for typing speed (500ms)
+        }
+
+        function launchConfetti() {
+            const duration = 5 * 1000; // Duration for confetti effect
+            const end = Date.now() + duration; // End time for confetti
+            const count = 200; // Number of confetti particles
+
+            (function frame() {
+                for (let i = 0; i < count; i++) {
+                    confetti({
+                        angle: Math.random() * 360, // Random angle
+                        spread: 50, // Spread for a more scattered effect
+                        startVelocity: 30, // Initial speed
+                        decay: 0.95, // Decay speed for particles
+                        scalar: 1.2, // Scalar to control particle size
+                        particleCount: 1, // Number of particles per iteration
+                        colors: ['#FF0B00', '#FFB700', '#A0D200', '#00D2FF', '#C500FF'], // Bright celebratory colors
+                        origin: {
+                            x: Math.random() < 0.5 ? 0 : 1, // Randomly choose left or right side
+                            y: Math.random() // Random vertical position
+                        }
+                    });
+                }
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame); // Repeat until end time is reached
+                }
+            })();
+        }
+    </script>
+</body>
+</html>

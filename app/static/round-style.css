@@ -1,0 +1,116 @@
+/* General Styles for Knockout Matchups */
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(180deg, rgba(255, 70, 70, 0.9), rgba(255, 140, 0, 0.9)), url('/static/images/fire-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+}
+
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 15px;
+    background: rgba(20, 20, 20, 0.9);
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.7), 0 0 70px rgba(255, 140, 0, 0.5);
+    animation: fireGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes fireGlow {
+    0% { box-shadow: 0 0 30px rgba(255, 0, 0, 0.5); }
+    100% { box-shadow: 0 0 50px rgba(255, 140, 0, 0.8); }
+}
+
+h1 {
+    text-align: center;
+    font-size: 3.5rem;
+    color: #ffcc00;
+    text-shadow: 0 0 40px rgba(255, 140, 0, 1), 0 0 60px rgba(255, 70, 70, 0.7);
+    margin-bottom: 30px;
+}
+
+h2, h3 {
+    color: #ffcc00;
+    text-shadow: 0 0 20px rgba(255, 140, 0, 0.8);
+}
+
+/* Eliminated Teams Styling */
+.eliminated-section p {
+    font-size: 1.4rem;
+    margin: 10px 0;
+}
+
+.eliminated {
+    color: #ff4d4d;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+}
+
+/* Matchup Section */
+.teams-section, .matchups-section {
+    margin: 20px 0;
+    padding: 10px;
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255, 140, 0, 0.6);
+}
+
+.team-choice {
+    margin: 10px 0;
+}
+
+.matchup-item {
+    margin: 15px 0;
+}
+
+.vs {
+    font-size: 1.8rem;
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+.versus {
+    font-weight: bold;
+    color: #ffcc00;
+    text-shadow: 0 0 20px rgba(255, 140, 0, 0.9);
+}
+
+/* Button Styling */
+.submit-btn {
+    background-color: #ffcc00;
+    color: #000;
+    border: 2px solid #ffcc00;
+    border-radius: 12px;
+    padding: 12px 30px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+    margin: 30px auto;
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.8);
+}
+
+.submit-btn:hover {
+    background-color: rgba(255, 255, 0, 0.9);
+    transform: translateY(-3px);
+    box-shadow: 0 0 40px rgba(255, 140, 0, 1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2, h3 {
+        font-size: 1.5rem;
+    }
+    .vs {
+        font-size: 1.3rem;
+    }
+    .submit-btn {
+        font-size: 1.1rem;
+    }
+}

@@ -1,0 +1,175 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background-image: url('/static/images/thumb-1920-1091080.jpg'); /* Background image */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+}
+
+/* Dark overlay for contrast */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text contrast */
+}
+
+/* Container for content */
+.container {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.1); /* Slight transparency */
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px); /* Blur effect for depth */
+}
+
+/* Header styling */
+h1 {
+    font-family: 'Russo One', sans-serif; /* Exotic font for header */
+    font-size: 4em; /* Increased font size for visibility */
+    background: linear-gradient(135deg, #ff3f6c, #ffeb3b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(255, 63, 108, 0.6); /* Subtle glow effect */
+}
+
+/* Paragraph styling */
+p {
+    font-size: 1.8em; /* Increased font size for paragraph */
+    color: #ffeb3b; /* Bright yellow for emphasis */
+    margin: 20px 0;
+}
+
+/* Label styling */
+label {
+    font-size: 1.5em; /* Increased label font size */
+    margin-bottom: 10px;
+    color: #ffeb3b; /* Bright yellow for label */
+}
+
+/* Select box styling */
+select {
+    background: rgba(255, 255, 255, 0.1); /* More transparent to blend with the background */
+    border: 2px solid #ffeb3b; /* Bright yellow border */
+    border-radius: 8px;
+    padding: 10px;
+    color: #ffeb3b; /* Yellow text color for visibility */
+    font-size: 1.2em; /* Font size for select box */
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    appearance: none; /* Remove default styling */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="%23ffeb3b"><path d="M7 10l5 5 5-5z"/></svg>'); /* Custom dropdown arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Position the dropdown arrow */
+    background-size: 15px; /* Size of the dropdown arrow */
+    transition: background 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+}
+
+/* Dropdown hover effect */
+select:hover {
+    background: rgba(255, 255, 255, 0.2); /* Slightly darker on hover */
+    border-color: #ff3f6c; /* Change border color on hover */
+}
+
+/* Dropdown focus effect */
+select:focus {
+    outline: none; /* Remove default outline */
+    border-color: #ff3f6c; /* Change border color on focus */
+    background: rgba(255, 255, 255, 0.3); /* Change background color on focus */
+}
+
+/* Button styling */
+button {
+    background: linear-gradient(135deg, #ff3f6c, #ffeb3b);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    color: white;
+    font-size: 1.2em; /* Font size for button */
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 63, 108, 0.5);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #ff2052, #ffc107); /* Darker on hover */
+    transform: translateY(-3px); /* Lift effect */
+}
+
+/* Styling for the "View Eliminated Teams" button */
+.view-eliminated-button {
+    background: linear-gradient(135deg, #ff3f6c, #ffeb3b); /* Same gradient as other buttons */
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px; /* Rounded for consistency */
+    color: white;
+    font-size: 1.2em; /* Same font size as other buttons */
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 63, 108, 0.5); /* Shadow effect */
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: block;
+    margin: 20px auto 0; /* Centered alignment */
+    text-align: center;
+    text-decoration: none; /* Remove underline */
+}
+
+/* Hover effect for the "View Eliminated Teams" button */
+.view-eliminated-button:hover {
+    background: linear-gradient(135deg, #ff2052, #ffc107); /* Darker gradient on hover */
+    transform: translateY(-3px); /* Lift effect */
+}
+
+/* Footer styling */
+footer {
+    position: absolute;
+    bottom: 20px;
+    color: #fff;
+    font-size: 0.8em;
+    z-index: 1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em; /* Responsive font size for smaller screens */
+    }
+
+    p {
+        font-size: 1.5em; /* Responsive paragraph size */
+    }
+
+    label {
+        font-size: 1em; /* Responsive label size */
+    }
+
+    select {
+        font-size: 1em; /* Responsive dropdown size */
+        padding: 10px;
+    }
+
+    button, .view-eliminated-button {
+        font-size: 1em; /* Responsive button size */
+        padding: 10px 20px;
+    }
+}

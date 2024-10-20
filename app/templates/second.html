@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Search</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        .button-container {
+            display: flex;
+            justify-content: flex-end; /* Align button to the right */
+            margin-top: 20px;
+        }
+        #resultButton {
+            display: block; /* Always show the button */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search for Team</h1>
+        <input type="text" id="searchTeamName" placeholder="Enter Team Name" required>
+        <button id="searchButton">Search</button>
+
+        <div id="teamDetails" style="margin-top: 20px;"></div>
+        
+        <div class="button-container">
+            <button id="resultButton">View Result</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('searchButton').addEventListener('click', function() {
+            const teamName = document.getElementById('searchTeamName').value;
+
+            fetch(`/search_team?team_name=${teamName}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Team not found');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const detailsDiv = document.getElementById('teamDetails');
+                    detailsDiv.innerHTML = `
+                        <h2>Team Details</h2>
+                        <p><strong>Team Name:</strong> ${data.team_name}</p>
+                        <p><strong>Group:</strong> ${data.group}</p>
+                        <p><strong>Points:</strong> ${data.points}</p>
+                        <p><strong>Matches Played:</strong> ${data.matches_played}</p>
+                        <p><strong>Matches Won:</strong> ${data.matches_won}</p>
+                        <p><strong>Matches Lost:</strong> ${data.matches_lost}</p>
+                        <p><strong>Kills:</strong> ${data.kills}</p>
+                    `;
+                })
+                .catch(error => {
+                    const detailsDiv = document.getElementById('teamDetails');
+                    detailsDiv.innerHTML = `<p style="color: red;">${error.message}</p>`;
+                });
+        });
+
+        document.getElementById('resultButton').addEventListener('click', function() {
+            window.location.href = '/third'; // Redirect to the third page
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive; /* Game-inspired font */
+    background-color: #1a1a1a; /* Dark background for a gaming vibe */
+    color: #f0f0f0; /* Light text color for contrast */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative; /* Positioning context for confetti */
+    overflow: hidden; /* Prevent overflow from confetti */
+}
+
+.container {
+    text-align: center;
+    padding: 40px;
+    flex: 1;
+    position: relative; /* For positioning children */
+    z-index: 2; /* Ensure container is above the background */
+}
+
+h1 {
+    font-size: 3.5rem; /* Size for main title */
+    color: #ffcc00; /* Bright yellow for a game-like feel */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Shadow for depth */
+}
+
+h2 {
+    font-size: 2.5rem; /* Size for subtitle */
+    color: #ff6600; /* Orange color */
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease; /* Fade in animation */
+}
+
+p.announcement {
+    font-size: 1.5rem; /* Size for announcement text */
+    margin-bottom: 30px;
+    line-height: 1.5;
+    animation: bounce 2s infinite; /* Infinite bounce effect */
+}
+
+.highlight {
+    font-weight: bold;
+    font-size: 5rem; /* Increase size for emphasis */
+    color: #ffcc00; /* Bright yellow for the winner's name */
+    animation: popUp 0.5s ease forwards, shake 0.5s ease forwards; /* Combined animations */
+    display: inline-block; /* Allow for animations */
+}
+
+.winner {
+    font-size: 4rem; /* Size for winner display */
+    color: #f0f0f0; /* Light text color */
+    margin-top: 20px;
+    display: none; /* Initially hidden until winner is announced */
+}
+
+/* Coordinator Info */
+.coordinator-info {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    backdrop-filter: blur(5px); /* Blur effect for a modern look */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.9rem; /* Smaller font size */
+    position: relative; /* Ensure it stays at the bottom */
+    margin-top: auto; /* Push it to the bottom */
+}
+
+.coordinator-info h2 {
+    font-size: 1.5rem; /* Size for coordinator title */
+    margin-bottom: 10px;
+    color: #ffcc00; /* Bright yellow */
+}
+
+.coordinator-info p {
+    margin: 5px 0; /* Space between coordinator details */
+    color: #f0f0f0; /* Light text color */
+}
+
+/* Animation for popping up */
+@keyframes popUp {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animation for fading in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Animation for bouncing */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Animation for shaking */
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    75% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Confetti effect */
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Ensure confetti is below the content */
+}

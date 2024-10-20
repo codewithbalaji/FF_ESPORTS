@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climax Clash - Matchups</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Climax Clash - Select Winning Teams</h1>
+        <form action="/submit_winners" method="POST">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Matchup</th>
+                        <th>Team A</th>
+                        <th>Team B</th>
+                        <th>Winner</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for matchup in matchups %}
+                        <tr>
+                            <td>{{ matchup.team_a }} vs {{ matchup.team_b }}</td>
+                            <td>{{ matchup.team_a }}</td>
+                            <td>{{ matchup.team_b }}</td>
+                            <td>
+                                <input type="checkbox" name="winners" value="{{ matchup.team_a }}"> Team A
+                                <input type="checkbox" name="winners" value="{{ matchup.team_b }}"> Team B
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br>
+            <button type="submit">Submit Results</button>
+        </form>
+    </div>
+</body>
+</html>

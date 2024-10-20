@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Event - Round Selection</title>
+    <link rel="stylesheet" href="/static/table.css"> <!-- Link your new exotic CSS -->
+    <script src="/static/add.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap&family=Russo+One&display=swap" rel="stylesheet"> <!-- Adding exotic font -->
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>Welcome to the Gaming Event</h1>
+        <p>Select a round to proceed:</p>
+        <form action="/generate_vs" method="POST">
+            <label for="rounds">Choose a Round:</label>
+            <select id="rounds" name="rounds">
+                <option value="round1-league">Round 1 - League</option>
+                <option value="round2-knockouts">Round 2 - Knockouts</option>
+                <option value="round3-climax-clash">Round 3-Climax Clash</option>
+            </select>
+            <button type="submit">Start Game</button>
+        </form>
+
+        <!-- New button to view eliminated teams -->
+        <div class="view-eliminated-container">
+            <a href="/eliminated_teams" class="view-eliminated-button">View Eliminated Teams</a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Gaming Event. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matchups</title>
+    <link rel="stylesheet" href="/static/matchups-style.css"> <!-- Link to the styles -->
+</head>
+<body>
+    <div class="container">
+        <h1>Round 1 - League Matchups</h1>
+
+        <!-- Group A Matchups -->
+        <h2>Group A Matchups</h2>
+        <ul class="matchup-list">
+            {% for matchup in matchups_a %}
+                <li class="matchup-item matchup">{{ matchup }}</li>
+            {% endfor %}
+        </ul>
+
+        <!-- Group B Matchups -->
+        <h2>Group B Matchups</h2>
+        <ul class="matchup-list">
+            {% for matchup in matchups_b %}
+                <li class="matchup-item matchup">{{ matchup }}</li>
+            {% endfor %}
+        </ul>
+
+        <!-- Button to go back or proceed -->
+        <button onclick="window.location.href='/round';">Back to Round Selection</button>
+    </div>
+</body>
+</html>

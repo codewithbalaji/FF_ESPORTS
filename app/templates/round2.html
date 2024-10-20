@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round 2 - Knockout Matchups</title>
+    <link rel="stylesheet" href="/static/improved-style.css"> <!-- Link your new CSS here -->
+</head>
+<body>
+    <div class="container">
+        <h1>Round 2 - Knockout Matchups</h1>
+
+        <h2>Eliminated Teams:</h2>
+        <p>Group A: <strong>{{ eliminated_team_a }}</strong></p>
+        <p>Group B: <strong>{{ eliminated_team_b }}</strong></p>
+
+        <form action="/submit_winners" method="POST">
+            <h3>Select Winning Teams for Group A:</h3>
+            {% for team in teams_a %}
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="winners" value="{{ team['team_name'] }}" checked>
+                        <span class="checkbox-custom"></span>
+                        {{ team['team_name'] }}
+                    </label>
+                </div>
+            {% endfor %}
+
+            <h3>Group A Matchups:</h3>
+            {% for match in knockout_matches_a %}
+                <div class="matchup">
+                    <p>
+                        <span class="team1">{{ match[0] }}</span> 
+                        <span class="vs-text">vs</span> 
+                        <span class="team2">{{ match[1] }}</span>
+                    </p>
+                </div>
+            {% endfor %}
+
+            <h3>Select Winning Teams for Group B:</h3>
+            {% for team in teams_b %}
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="winners" value="{{ team['team_name'] }}" checked>
+                        <span class="checkbox-custom"></span>
+                        {{ team['team_name'] }}
+                    </label>
+                </div>
+            {% endfor %}
+
+            <h3>Group B Matchups:</h3>
+            {% for match in knockout_matches_b %}
+                <div class="matchup">
+                    <p>
+                        <span class="team1">{{ match[0] }}</span> 
+                        <span class="vs-text">vs</span> 
+                        <span class="team2">{{ match[1] }}</span>
+                    </p>
+                </div>
+            {% endfor %}
+
+            <button type="submit">Submit Winners</button>
+        </form>
+    </div>
+</body>
+</html>

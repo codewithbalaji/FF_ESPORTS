@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminated Teams</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Eliminated Teams</h1>
+        <form action="/retrieve_teams" method="POST">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>Team Name</th>
+                        <th>Group</th>
+                        <th>Points</th>
+                        <th>Matches Played</th>
+                        <th>Matches Won</th>
+                        <th>Matches Lost</th>
+                        <th>Kills</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for team in eliminated_teams %}
+                    <tr>
+                        <td><input type="checkbox" name="team_names" value="{{ team['team_name'] }}"></td>
+                        <td>{{ team['team_name'] }}</td>
+                        <td>{{ team['group'] }}</td>
+                        <td>{{ team['points'] }}</td>
+                        <td>{{ team['matches_played'] }}</td>
+                        <td>{{ team['matches_won'] }}</td>
+                        <td>{{ team['matches_lost'] }}</td>
+                        <td>{{ team['kills'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button type="submit">Retrieve Selected Teams</button>
+        </form>
+    </div>
+</body>
+</html>

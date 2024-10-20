@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climax Clash - Round 3</title>
+</head>
+<body>
+    <h1>Climax Clash - Round 3</h1>
+    <h2>Matchups</h2>
+    <form action="/submit_round3_winners" method="POST">
+        <ul>
+            {% for matchup in matchups %}
+                <li>
+                    {{ matchup }}
+                    <label for="winner_{{ loop.index }}">Winner:</label>
+                    <input type="text" id="winner_{{ loop.index }}" name="winners" placeholder="Enter winning team" required>
+                </li>
+            {% endfor %}
+        </ul>
+        <button type="submit">Submit Winners</button>
+    </form>
+    <br>
+    <a href="/">Go back to Home</a>
+</body>
+</html>

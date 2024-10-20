@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Round 3: Climax Clash Matchups</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Round 3: Climax Clash Matchups</h1>
+        <form action="/submit_winners" method="POST">
+            <input type="hidden" name="round3-climax-clash" value="true">
+            <div class="matchups">
+                {% for matchup in matchups %}
+                    <div class="matchup">
+                        <label>
+                            <input type="radio" name="winners" value="{{ matchup.split(' vs ')[0] }}" required>
+                            {{ matchup.split(' vs ')[0] }}
+                        </label>
+                        <span>vs</span>
+                        <label>
+                            <input type="radio" name="winners" value="{{ matchup.split(' vs ')[1] }}" required>
+                            {{ matchup.split(' vs ')[1] }}
+                        </label>
+                    </div>
+                {% endfor %}
+            </div>
+            <button type="submit">Submit Winners</button>
+        </form>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

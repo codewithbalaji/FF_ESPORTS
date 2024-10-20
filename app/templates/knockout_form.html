@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knockout Match</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Knockout Match</h1>
+        <form action="/submit_match" method="POST">
+            <p>Match: <strong>{{ team1['team_name'] }}</strong> vs <strong>{{ team2['team_name'] }}</strong></p>
+
+            <label>Select the Winner:</label>
+            <select name="winner" required>
+                <option value="{{ team1['team_name'] }}">{{ team1['team_name'] }}</option>
+                <option value="{{ team2['team_name'] }}">{{ team2['team_name'] }}</option>
+            </select>
+
+            <input type="hidden" name="team1" value="{{ team1['team_name'] }}">
+            <input type="hidden" name="team2" value="{{ team2['team_name'] }}">
+
+            <button type="submit">Submit Winner</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+/* Importing a futuristic font */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* General Styles */
+body {
+    font-family: 'Orbitron', sans-serif; /* Futuristic font */
+    background: url('/static/images/thumb-1920-1091080.jpg') no-repeat center center fixed; /* High-energy game background */
+    background-size: cover;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll; /* Always show vertical scrollbar */
+    animation: glowBackground 5s infinite alternate;
+}
+
+/* Subtle animation for background */
+@keyframes glowBackground {
+    0% { background-color: rgba(0, 0, 0, 0.8); }
+    100% { background-color: rgba(0, 0, 0, 1); }
+}
+
+.container {
+    max-width: 600px; /* Adjusting width for the round selection */
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(20, 20, 20, 0.95);
+    box-shadow: 0 0 50px rgba(0, 255, 255, 1), 0 0 70px rgba(0, 255, 255, 0.8); /* Neon glow */
+    border: 3px solid rgba(0, 255, 255, 0.8);
+    animation: neonGlow 1.5s ease-in-out infinite alternate; /* Neon pulse */
+}
+
+/* Neon pulse effect */
+@keyframes neonGlow {
+    0% { box-shadow: 0 0 30px rgba(0, 255, 255, 0.8); }
+    100% { box-shadow: 0 0 50px rgba(0, 255, 255, 1); }
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    font-size: 3rem; /* Larger size for impact */
+    color: #00ffff;
+    margin-bottom: 25px;
+    text-shadow: 0 0 30px rgba(0, 255, 255, 1), 0 0 50px rgba(0, 255, 255, 0.5);
+    animation: textGlow 1.5s ease-in-out infinite alternate; /* Neon glow for the title */
+}
+
+/* Glow effect for heading */
+@keyframes textGlow {
+    0% { text-shadow: 0 0 15px rgba(0, 255, 255, 1); }
+    100% { text-shadow: 0 0 30px rgba(0, 255, 255, 1); }
+}
+
+/* Form Elements */
+label {
+    display: block;
+    font-size: 1.5rem; /* Larger label size */
+    margin: 20px 0 10px;
+    color: #00ffff; /* Neon color */
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 2px solid #00ffff;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #00ffff; /* Neon text inside select */
+    font-size: 1.2rem;
+    transition: border-color 0.3s ease;
+}
+
+select:focus {
+    border-color: #00ffff;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 1); /* Stronger glow when focused */
+}
+
+/* Button Styles */
+button {
+    background-color: #00ffff;
+    color: #000;
+    border: 2px solid #00ffff;
+    border-radius: 10px;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+    display: block;
+    width: 100%; /* Full-width button */
+}
+
+button:hover {
+    background-color: rgba(0, 255, 255, 0.7);
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 1);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .container {
+        max-width: 90%; /* Full width on smaller screens */
+    }
+
+    label {
+        font-size: 1.3rem; /* Adjust label size */
+    }
+
+    select, button {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+    }
+}

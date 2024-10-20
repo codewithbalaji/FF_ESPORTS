@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Russo+One&display=swap');
+
+/* General Body Styles */
+body {
+    font-family: 'Russo One', sans-serif;
+    background: url('/static/images/thumb-1920-1091080.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    color: #ffffff; /* Default text color */
+}
+
+/* Container Styling */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.85); /* Dark semi-transparent background */
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.8); /* Teal shadow */
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    color: #FF69B4; /* Hot Pink */
+    font-size: 3.5rem;
+}
+
+h2 {
+    color: #FFD700; /* Gold */
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Improved visibility for eliminated teams */
+p {
+    font-size: 1.8rem; /* Normal text size */
+    color: #00FFFF; /* Cyan */
+    text-align: center; /* Center alignment */
+}
+
+p strong {
+    color: #FF4500; /* Bright Orange Red */
+    font-size: 2rem; /* Increased font size */
+}
+
+/* Team Selection Styles */
+h3 {
+    color: #32CD32; /* Lime Green */
+    font-size: 2.5rem; /* Increased font size */
+    margin: 30px 0 15px; /* Margin for spacing */
+    text-align: center; /* Center align headings */
+}
+
+/* Matchup Text */
+.matchup {
+    font-size: 2.5rem; /* Normal matchup size */
+    text-align: center; /* Center align */
+    margin: 20px 0;
+}
+
+/* Team Colors */
+.team1 {
+    color: #00FF7F; /* Spring Green for Team 1 */
+}
+
+.team2 {
+    color: #FF1493; /* Deep Pink for Team 2 */
+}
+
+/* Highlighted VS */
+.vs-text {
+    color: #FF4500; /* Bright Orange Red for VS */
+    font-size: 4rem;
+    animation: bounce 1.5s infinite ease-in-out; /* Animation */
+    display: inline-block; /* Block display for proper spacing */
+}
+
+/* Keyframes for the bounce effect */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Checkbox List Styles */
+.checkbox-list {
+    list-style: none; /* Remove default list style */
+    padding: 0;
+    text-align: center; /* Center align the list */
+}
+
+.checkbox-group {
+    margin: 15px 0; /* Margin for spacing */
+}
+
+input[type="checkbox"] {
+    transform: scale(1.5); /* Scale checkbox */
+    margin-right: 10px; /* Margin for spacing */
+    cursor: pointer; /* Pointer on hover */
+    accent-color: #FFD700; /* Checkbox accent color */
+}
+
+label {
+    font-size: 2rem; /* Label size */
+    color: #FFD700; /* Checkbox label color */
+}
+
+/* Button Styles */
+button {
+    background-color: #FF6347; /* Tomato color for button */
+    color: #fff; /* Text color */
+    padding: 15px 30px; /* Padding */
+    font-size: 1.5rem; /* Font size */
+    border: none; /* No border */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Transition effects */
+}
+
+button:hover {
+    background-color: #FF4500; /* Lighter on hover */
+    transform: scale(1.05); /* Slightly enlarge */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.5rem; /* Adjust size for small screens */
+    }
+
+    h2 {
+        font-size: 2rem; /* Adjust size for small screens */
+    }
+
+    h3 {
+        font-size: 2rem; /* Adjusted size for h3 */
+    }
+
+    .matchup {
+        font-size: 1.5rem; /* Adjusted size for matchup */
+    }
+
+    .vs-text {
+        font-size: 3rem; /* Adjusted size for VS */
+    }
+
+    button {
+        font-size: 1.2rem; /* Adjust button font size */
+    }
+}
